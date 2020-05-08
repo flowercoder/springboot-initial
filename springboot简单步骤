@@ -1,0 +1,6 @@
+建立实体类 entity/domain/vo
+建立mapper接口
+建立mapper xml 并写sql
+建立service
+写controller
+
