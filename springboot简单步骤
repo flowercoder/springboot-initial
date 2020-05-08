@@ -10,6 +10,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 根据实际情况更改-->
 <mapper namespace="org.apache.ibatis.submitted.rounding.Mapper">
-    
+    <!-- 填入内容需要按照下面例子改写sql-->
+</mapper>
 
+sql example 1
+<mapper namespace="com.ideal.springbootweb.mapper.UserMapper">
+    <select id="findAll" resultType="com.ideal.springbootweb.entity.User">
+        select * from user
+    </select>
 </mapper>
