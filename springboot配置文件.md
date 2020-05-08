@@ -25,3 +25,23 @@ spring:
       prepStmtCacheSqlLimit: 2048
       #新版本MySQL支持服务器端准备，是否开启
       useServerPrepStmts: true
+mybatis: 
+   mapper-locations: classpath:mapper/*.xml
+   configLocation: classpath:/mybatis-config.xml
+   
+   
+   
+   
+mybatis-config.xml   
+   
+   <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<configuration> 
+    <!-- 全局参数 --> 
+	<settings>
+		<!-- 设置但JDBC类型为空时,某些驱动程序要指定值,default:OTHER -->
+		<setting name="jdbcTypeForNull" value="NULL"/> 
+	</settings> 
+</configuration>
+   
+   
