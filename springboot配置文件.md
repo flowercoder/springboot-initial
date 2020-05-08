@@ -1,18 +1,17 @@
 server:
   port:8888
 spring: 
-  
    datasource: 
       #数据库驱动
       driverClassName: com.mysql.cj.jdbc.Driver
       #数据库连接
-      url: jdbc:mysql://47.52.117.24:3306/managedb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+      url: jdbc:mysql://127.0.0.1:3306/managedb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
       #数据库的名称,biyi-form组件使用
       db-name: managedb
       #数据库连接池
       type: com.zaxxer.hikari.HikariDataSource
       #数据库用户名
-      username: template
+      username: root
       #数据库密码
       password: Asdf1@34
       hikari: 
