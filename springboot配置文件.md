@@ -13,7 +13,7 @@ spring:
       #数据库用户名
       username: root
       #数据库密码
-      password: Asdf1@34
+      password: 123456
       hikari: 
          #最大连接池数
          maximumPoolSize: 20
