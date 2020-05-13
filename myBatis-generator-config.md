@@ -1,18 +1,24 @@
 pom.xml
 
-        <plugin>
-            <groupId>org.mybatis.generator</groupId>
-            <artifactId>mybatis-generator-maven-plugin</artifactId>
-            <version>1.3.7</version>
-            <configuration>
-                <!--mybatis的代码生成器的配置文件-->
-                <configurationFile>src/main/resources/mybatis-generator-config.xml</configurationFile>
-                <!--允许覆盖生成的文件-->
-                <overwrite>true</overwrite>
-                <!--将当前pom的依赖项添加到生成器的类路径中-->
-                <includeCompileDependencies>true</includeCompileDependencies>
-            </configuration>
-        </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.7</version>
+                <configuration>
+                    <!--mybatis的代码生成器的配置文件-->
+                    <configurationFile>src/main/resources/mybatis-generator-config.xml</configurationFile>
+                    <!--允许覆盖生成的文件-->
+                    <overwrite>true</overwrite>
+                </configuration>
+                <dependencies>
+                    <!-- mysql的JDBC驱动 -->
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>8.0.20</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
        
 mybatis-generator-config.xml
 
@@ -24,7 +30,8 @@ mybatis-generator-config.xml
 
 <generatorConfiguration>
     <!-- 引入配置文件 -->
-    <properties resource="application.yml"/>
+    <!--    todo 需要解决 yml文件似乎无法引入配置-->
+    <!--    <properties resource="application.yml"/>-->
 
     <!-- 一个数据库一个context,context的子元素必须按照它给出的顺序
         property*,plugin*,commentGenerator?,jdbcConnection,javaTypeResolver?,
@@ -36,11 +43,11 @@ mybatis-generator-config.xml
         <!-- 注释 -->
         <commentGenerator>
             <!-- 是否不生成注释 -->
-            <property name="suppressAllComments" value="false"/>
+            <property name="suppressAllComments" value="true"/>
             <!-- 不希望生成的注释中包含时间戳 -->
             <!--<property name="suppressDate" value="true"/>-->
             <!-- 添加 db 表中字段的注释，只有suppressAllComments为false时才生效-->
-            <property name="addRemarkComments" value="true"/>
+            <property name="addRemarkComments" value="false"/>
         </commentGenerator>
 
 
@@ -77,7 +84,7 @@ mybatis-generator-config.xml
         </javaTypeResolver>
 
         <!-- 生成实体类地址 entity,domain-->
-        <javaModelGenerator targetPackage="com.wqlm.boot.user.po" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.ideal.templateproject.user.po" targetProject="src/main/java">
             <!-- 是否让 schema 作为包的后缀，默认为false -->
             <!--<property name="enableSubPackages" value="false"/>-->
             <!-- 是否针对string类型的字段在set方法中进行修剪，默认false -->
@@ -91,7 +98,8 @@ mybatis-generator-config.xml
         </sqlMapGenerator>
 
         <!-- 生成 XxxMapper.java 接口 dao层-->
-        <javaClientGenerator targetPackage="com.wqlm.boot.user.dao" targetProject="src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="com.ideal.templateproject.user.dao" targetProject="src/main/java"
+                             type="XMLMAPPER">
             <!--<property name="enableSubPackages" value="false"/>-->
         </javaClientGenerator>
 
