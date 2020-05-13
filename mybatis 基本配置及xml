@@ -1,7 +1,7 @@
 建立实体类 entity/domain/vo
 建立mapper接口
 建立mapper  resources下面 xml 并写sql
-建立service
+建立service 以及serviceImpl
 写controller
 
 //固定
